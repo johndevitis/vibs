@@ -22,5 +22,5 @@ The following example descriptions are paraphrased from the comments in each exa
 
 The usable frequency content of the impulse signal is found and ploted with the driving point frequency content. 
 
-![impulse_freq](data/impulse_freq.png)
+!(impulse_freq)[vibs/data/impulse_freq.png]
 
