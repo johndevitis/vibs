@@ -21,6 +21,9 @@
 % load from file
 data = dlmread('impulse.txt');
 
+% scale force channel
+data(:,1) = data(:,1)*1000;
+
 % channel labels
 chan = {'Impulse Signal'; 'Driving Point Response'};
 
