@@ -1,0 +1,16 @@
+# ignore...
+
+# zip files
+*.zip
+
+# matlab autosave files
+*.asv
+
+# any temporary files
+*.tmp
+
+# ms office tmp files
+~$*.doc*
+~$*.xls*
+*.xlk
+~$*.ppt*
