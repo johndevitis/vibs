@@ -4,6 +4,9 @@ vibs is a collection of structural dynamics and signal processing tools and exam
 
 Run the `init.m` function (from anywhere) to add all the project contents to the Matlab search path.
 
+# Contents
+
+
 ## Examples
 
 Example files are located in the vibs/examples/ directory. Any data files referenced in the examples are located in the vibs/data/ directory.
