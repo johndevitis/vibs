@@ -28,8 +28,17 @@ Class notes from CIVE801 and CIVE802 taught by Frank Moon at Drexel University. 
 
 
 ### MDOF (from CIVE802)
+[Lecture 1 - Formulation of EOM for MDOF Systems I](docs/franks-notes/mdof/Lecture 1 - Formulation of EOM for MDOF Systems I.pdf)
 
+[Lecture 2 - Formulation of EOM for MDOF Systems II](docs/franks-notes/mdof/Lecture 2 - Formulation of EOM for MDOF Systems II.pdf)
 
+[Lecture 3 - Formulation of EOM for MDOF Systems III](docs/franks-notes/mdof/Lecture 3 - Formulation of EOM for MDOF Systems III.pdf)
+
+[Lecture 4 - Normal Mode Method and Free Vibrations](docs/franks-notes/mdof/Lecture 4 - Normal Mode Method and Free Vibrations.pdf)
+
+[Lecture 5 - Classical Damping](docs/franks-notes/mdof/Lecture 5 - Classical Damping.pdf)
+
+[Lecture 6 - Forced Vibration Modal Analysis](docs/franks-notes/mdof/Lecture 6 - Forced Vibration Modal Analysis.pdf)
 
 
 ## Examples
