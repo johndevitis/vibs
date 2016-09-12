@@ -12,6 +12,7 @@ Class notes from CIVE801 and CIVE802 taught by Frank Moon at Drexel University. 
 ### SDOF
 [Lecture 1]("docs/franks-notes/sdof/Lecture 1 - Introduction to Structural Dynamics.pdf")
 
+
 ### MDOF (from CIVE802)
 
 
