@@ -10,7 +10,7 @@ Run the `init.m` function (from anywhere) to add all the project contents to the
 Class notes from CIVE801 and CIVE802 taught by Frank Moon at Drexel University. Note that the PDF's are linked here, but there is also interactive spreadsheets within the repository which demonstrate the theory.
 
 ### SDOF
-[Lecture 1]("docs/franks-notes/sdof/Lecture 1 - Introduction to Structural Dynamics.pdf")
+[Lecture 1](docs/franks-notes/sdof/Lecture 1 - Introduction to Structural Dynamics.pdf)
 
 
 ### MDOF (from CIVE802)
