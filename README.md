@@ -12,6 +12,20 @@ Class notes from CIVE801 and CIVE802 taught by Frank Moon at Drexel University. 
 ### SDOF
 [Lecture 1](docs/franks-notes/sdof/Lecture 1 - Introduction to Structural Dynamics.pdf)
 
+[Lecture 2](docs/franks-notes/sdof/Lecture 2 - Dynamic Modeling (Point Mass).pdf)
+
+[Lecture 3](docs/franks-notes/sdof/Lecture 3 - Dynamic Modeling (Distributed Mass).pdf)
+
+[Lecture 4](docs/franks-notes/sdof/Lecture 4 - EOM and Undamped Free Vibration.pdf)
+
+[Lecture 5](docs/franks-notes/sdof/Lecture 5 - Damped Free Vibration.pdf)
+
+[Lecture 6](docs/franks-notes/sdof/Lecture 6 - Forced Harmonic Vibration.pdf)
+
+[Lecture 7](docs/franks-notes/sdof/Lecture 7 - Forced Harmonic and General Loading.pdf)
+
+[Lecture 8](docs/franks-notes/sdof/Lecture 8 - General Loading and Numerical Methods.pdf)
+
 
 ### MDOF (from CIVE802)
 
