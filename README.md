@@ -1,10 +1,20 @@
 # vibs
 
-vibs is a collection of structural dynamics and signal processing tools and examples. 
+vibs is a collection of structural dynamics and signal processing tools and examples.
 
 Run the `init.m` function (from anywhere) to add all the project contents to the Matlab search path.
 
 # Contents
+
+## Franks Notes
+Class notes from CIVE801 and CIVE802 taught by Frank Moon at Drexel University. Note that the PDF's are linked here, but there is also interactive spreadsheets within the repository which demonstrate the theory.
+
+### SDOF
+[Lecture 1]("docs/franks-notes/sdof/Lecture 1 - Introduction to Structural Dynamics.pdf")
+
+### MDOF (from CIVE802)
+
+
 
 
 ## Examples
@@ -19,11 +29,10 @@ The following example descriptions are paraphrased from the comments in each exa
 
 ### Usable Frequency Content of Impulse Signal
 
-`impulse_example1.m` loads an impact record (force and driving point) from a file. 
+`impulse_example1.m` loads an impact record (force and driving point) from a file.
 
 ![impulse_time](data/impulse_time.png)
 
-The usable frequency content of the impulse signal is found and plotted with the driving point frequency content. 
+The usable frequency content of the impulse signal is found and plotted with the driving point frequency content.
 
 ![impulse_freq](data/impulse_freq.png)
-
