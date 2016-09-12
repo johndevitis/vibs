@@ -1,0 +1,25 @@
+<h1 id="vibs">vibs</h1>
+<p>vibs is a collection of structural dynamics and signal processing tools and examples.</p>
+<p>Run the <code>init.m</code> function (from anywhere) to add all the project contents to the Matlab search path.</p>
+<h1 id="contents">Contents</h1>
+<h2 id="franks-notes">Franks Notes</h2>
+<p>Class notes from CIVE801 and CIVE802 taught by Frank Moon at Drexel University. Note that the PDF's are linked here, but there is also interactive spreadsheets within the repository which demonstrate the theory.</p>
+<h3 id="sdof">SDOF</h3>
+<p><a href="%22docs/franks-notes/sdof/Lecture%201%20-%20Introduction%20to%20Structural%20Dynamics.pdf%22">Lecture 1</a></p>
+<h3 id="mdof-from-cive802">MDOF (from CIVE802)</h3>
+<h2 id="examples">Examples</h2>
+<p>Example files are located in the vibs/examples/ directory. Any data files referenced in the examples are located in the vibs/data/ directory.</p>
+<p>The following example descriptions are paraphrased from the comments in each example.m file. Refer to the specific example for more details.</p>
+<h3 id="fft-scaling">FFT Scaling</h3>
+<p><code>fft_example1.m</code> shows the basics of forming time signals based on the amplitude and frequency of two sinusoids. The frequency content is found via the FFT and the proper scaling is recovered.</p>
+<h3 id="usable-frequency-content-of-impulse-signal">Usable Frequency Content of Impulse Signal</h3>
+<p><code>impulse_example1.m</code> loads an impact record (force and driving point) from a file.</p>
+<div class="figure">
+<img src="data/impulse_time.png" alt="impulse_time" />
+<p class="caption">impulse_time</p>
+</div>
+<p>The usable frequency content of the impulse signal is found and plotted with the driving point frequency content.</p>
+<div class="figure">
+<img src="data/impulse_freq.png" alt="impulse_freq" />
+<p class="caption">impulse_freq</p>
+</div>
