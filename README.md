@@ -2,6 +2,7 @@
 
 This repository is a collection of notes, signal processing tools, and examples related to structural dynamics.
 
+![sine-curve](data/graphics/Sine_curve_drawing_animation.gif){width=100%}
 
 # References
 
