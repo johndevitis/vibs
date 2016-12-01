@@ -68,8 +68,8 @@ The following example descriptions are paraphrased from the comments in each exa
 
 `impulse_example1.m` loads an impact record (force and driving point) from a file.
 
-![impulse_time](data/impulse_time.png){width=100%}
+![](data/impulse_time.png){width=50%}
 
 The usable frequency content of the impulse signal is found and plotted with the driving point frequency content.
 
-![impulse_freq](data/impulse_freq.png){width=100%}
+![](data/impulse_freq.png){width=50%}
