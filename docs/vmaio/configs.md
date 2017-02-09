@@ -16,18 +16,18 @@ Where there is a tab delimination between `VARIABLE` and `value`.
 
 The main configuration file is expected to be on the project root and named `config` (with no extension).
 
-    # VMA MAIN Configuration File
+    # VMAIO Configuration File
     # Version 1.0
 
     DATA_DIR                    data
 
-    STRUCTURE_NO                09578 006 19516
-    STRUCTURE_DESCRIPTION       LTBP North-West Cluster - Bridge 4 - Interior Span
+    STRUCTURE_NO                123456
+    STRUCTURE_DESCRIPTION       Bridge 4 - Interior Span
     STRUCTURE_CLUSTER           North-West
     STRUCTURE_CLUSTER_NO        4
 
-    USER_NAME                   John DeVitis
-    USER_EMAIL                  johndevitis@gmail.com
+    USER_NAME                   John
+    USER_EMAIL                  john@email.com
 
 
 ## Data Acquisition Config
