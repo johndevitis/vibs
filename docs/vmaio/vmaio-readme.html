@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="styles/clean1.css" type="text/css" />
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#directory-structure">Directory Structure</a></li>
+<li><a href="#configuration-files">Configuration Files</a><ul>
+<li><a href="#root-vmaio-config">Root VMAIO Config</a></li>
+<li><a href="#data-acquisition-config">Data Acquisition Config</a><ul>
+<li><a href="#trigger-mode">Trigger Mode</a></li>
+<li><a href="#logger-mode">Logger Mode</a></li>
+</ul></li>
+<li><a href="#global-degree-of-freedom-file">Global Degree-of-Freedom File</a></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="directory-structure">Directory Structure</h1>
+<p><img src="img\diagram-2.svg" /></p>
+<h1 id="configuration-files">Configuration Files</h1>
+<p>Simple configuration files are used to set user preferences and control the behavior of different processes.</p>
+<p>The general syntax is:</p>
+<pre><code># Comment
+VARIABLE    value</code></pre>
+<p>Where there is a tab delimination between <code>VARIABLE</code> and <code>value</code>.</p>
+<h2 id="root-vmaio-config">Root VMAIO Config</h2>
+<p>The main configuration file is expected to be on the modal/ root folder and named <code>config</code> (with no extension).</p>
+<pre><code># VMA MAIN Configuration File
+# Version 0.1.0
+
+DATA_DIR                    data
+
+STRUCTURE_NO                123456789
+STRUCTURE_DESCRIPTION       Bridge 4
+
+USER_NAME                   John
+USER_EMAIL                  john@email.com</code></pre>
+<h2 id="data-acquisition-config">Data Acquisition Config</h2>
+<p>DAQ configuration files are assumed to be in the path: <code>~/data/bin/&lt;daq_name&gt;.conf</code>. Note the <code>.conf</code> extension.</p>
+<p>DAQ’s can be utilized in one of two modes, trigger or logger.</p>
+<h3 id="trigger-mode">Trigger Mode</h3>
+<p>DAQ’s in trigger mode are expected to have <strong>1</strong> input record per file. The files are expected to have the naming convention: <code>somethingsomething_&lt;fileid&gt;_&lt;avg&gt;</code></p>
+<p>Below is an example of a trigger configuration file:</p>
+<pre><code># VMA DAQ Configuration
+# Version 0.1.0
+
+# daq scanning mode
+MODE        trigger
+
+# daq sampling info
+FS          3200
+BLOCKSIZE   3200
+
+# trigger window
+LB          50
+RB          31950
+
+# daq channel to data column mapping. the time stamp column is zero indexed to avoid confusion with the physical daq channels
+TIMEID      0
+INID        1, 2, 3
+OUTID       4
+TRIGGERID   1
+
+# units per channel
+UNITS             lb, lb, lb, g
+# channel scalling mv/v -&gt; EU
+SENSITIVITY       .25, .25, .25, 1000
+# scaled already? boolean
+SCALED      0</code></pre>
+<h3 id="logger-mode">Logger Mode</h3>
+<p>DAQ’s in logger mode are exected to have a series of files saved in a named folder.</p>
+<p>Below is an example of a logger configuration file:</p>
+<pre><code># VMA DAQ Configuration
+# Version 0.1.0
+
+# daq scanning mode
+MODE        logger
+
+# daq sampling info
+FS          3200
+BLOCKSIZE   3200
+
+# daq channel to data column mapping. the time stamp column is zero indexed to avoid confusion with the physical daq channels
+TIMEID      0
+OUTID       1, 2, 3, 4, 5, 6
+
+# units per channel
+UNITS       g, g, g, g, g, g
+# channel scalling mv/v -&gt; EU
+SENSITIVITY 1000, 1000, 1000, 1000, 1000, 1000
+# scaled already? boolean
+SCALED      0</code></pre>
+<h2 id="global-degree-of-freedom-file">Global Degree-of-Freedom File</h2>
+<p>The global DOF file is used to map the fileids (recorded in the filename by a trigger DAQ) to the global DOF in the modal model. It is expected to be a comma deliminated table located on the project root and named <code>dof.csv</code>.</p>
+<p>Below is an example of a dof configuration file. Note the <code>channel = -1</code> in the last four rows signals that all force channels for that DAQ are to sum.</p>
+<pre><code>id,record,axis,orientation,daq,type,channel,x,y,z,input,output
+1,0,3,1,ref2,fixed,1,10,0,0,0,1
+2,0,3,1,ref2,fixed,2,20,0,0,0,1
+3,0,3,1,ref2,fixed,3,60,0,0,0,1
+7,0,3,1,ref1,fixed,1,8.28,40,0,0,1
+8,0,3,1,ref1,fixed,2,18.28,40,0,0,1
+9,0,3,1,ref1,fixed,3,68.28,40,0,0,1
+13,1,3,1,rov1,roving,-1,8.53,5,0,1,1
+14,2,3,1,rov1,roving,-1,18.53,5,0,1,1
+15,3,3,1,rov2,roving,-1,28.53,5,0,1,1
+16,4,3,1,rov2,roving,-1,58.53,5,0,1,1</code></pre>
+</body>
+</html>
