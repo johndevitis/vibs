@@ -46,7 +46,7 @@ P2 = abs(yy/L);              % scale two sided
 P1 = P2(1:ns);               % single sided
 P1(2:end-1) = 2*P1(2:end-1); % double amplitude for single side
 
-% plot single dided
+% plot single sided
 figure
 plot(f,P1,'.-');
 
