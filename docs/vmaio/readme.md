@@ -2,7 +2,7 @@
 
 # VMA Configuration Files
 
-Simple configuration files are used to set user preferences and controll the behavior of different processes.
+Simple configuration files are used for the user to set preferences and control the behavior of different processes.
 
 The general syntax is:
 
@@ -12,19 +12,21 @@ VARIABLE    value
 ```
 Where there is a tab delimination between `VARIABLE` and `value`.
 
-## VMAIO Config
+## Project Config
 
 The main configuration file is expected to be on the project root and named `config` (with no extension).
 
+![VMA Directory Structure Conventions](./img/diagram-2.svg)
+
+A sample project configuration file is shown below:
+
     # VMAIO Configuration File
-    # Version 1.0
+    # Version 0.1.0
 
     DATA_DIR                    data
 
     STRUCTURE_NO                123456
     STRUCTURE_DESCRIPTION       Bridge 4 - Interior Span
-    STRUCTURE_CLUSTER           North-West
-    STRUCTURE_CLUSTER_NO        4
 
     USER_NAME                   John
     USER_EMAIL                  john@email.com
@@ -32,9 +34,9 @@ The main configuration file is expected to be on the project root and named `con
 
 ## Data Acquisition Config
 
-DAQ configuration files are assumed to be in the path: `~/data/bin/<daq_name>.conf`. Note the `.conf` extension.
+DAQ configuration files are assumed to be in the path: `~/data/bin/<daq_name>.conf`, where `~` is the project root directory. Note the `.conf` extension.
 
-DAQ's can be utilized in one of two modes, trigger or logger.
+DAQ's can be in one of two modes, *trigger* or *logger*.
 
 ### Trigger Mode
 
@@ -66,15 +68,17 @@ Below is an example of a trigger configuration file:
 
     # units per channel
     UNITS             lb, lb, lb, g
-    # channel scalling mv/v -> EU
+
+    # channel scaling mv/v -> EU
     SENSITIVITY       .25, .25, .25, 1000
+
     # scaled already? boolean
     SCALED      0
 
 
 ### Logger Mode
 
-DAQ's in logger mode are exected to have a series of files saved in a named folder.
+DAQ's in logger mode are expected to have a series of files saved in a named folder.
 
 Below is an example of a logger configuration file:
 
@@ -88,14 +92,18 @@ Below is an example of a logger configuration file:
     FS          3200
     BLOCKSIZE   3200
 
-    # daq channel to data column mapping. the time stamp column is zero indexed to avoid confusion with the 'physical' daq channels
+    # daq channel to data column mapping.
+    # the time stamp column is zero indexed
+    # to avoid confusion with the physical channels
     TIMEID      0
     OUTID       1, 2, 3, 4, 5, 6
 
     # units per channel
     UNITS       g, g, g, g, g, g
-    # channel scalling mv/v -> EU
+
+    # channel scaling mv/v -> EU
     SENSITIVITY 1000, 1000, 1000, 1000, 1000, 1000
+
     # scaled already? boolean
     SCALED      0
 
