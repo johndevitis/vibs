@@ -56,7 +56,9 @@ Below is an example of a trigger configuration file:
     LB          50
     RB          31950
 
-    # daq channel to data column mapping. the time stamp column is zero indexed to avoid confusion with the physical daq channels
+    # daq channel to data column mapping.
+    # the time stamp column is zero indexed
+    # to avoid confusion with the physical channels
     TIMEID      0
     INID        1, 2, 3
     OUTID       4
