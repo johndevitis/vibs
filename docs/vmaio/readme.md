@@ -40,7 +40,7 @@ DAQ's can be in one of two modes, *trigger* or *logger*.
 
 ### Trigger Mode
 
-DAQ's in trigger mode are expected to have **1** input record per file. The files are expected to have the naming convention: `somethingsomething_<fileid>_`
+DAQ's in trigger mode are expected to have **1** input record per file. The files are expected to have the naming convention: `somethingsomething_<fileid>_<avg>`
 
 Below is an example of a trigger configuration file:
 
