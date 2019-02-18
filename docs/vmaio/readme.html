@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>readme</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="pandoc2.css">
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#vma-configuration-files">VMA Configuration Files</a><ul>
+<li><a href="#project-config">Project Config</a></li>
+<li><a href="#data-acquisition-config">Data Acquisition Config</a><ul>
+<li><a href="#trigger-mode">Trigger Mode</a></li>
+<li><a href="#logger-mode">Logger Mode</a></li>
+</ul></li>
+<li><a href="#global-degree-of-freedom-file">Global Degree-of-Freedom File</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="vma-configuration-files">VMA Configuration Files</h1>
+<p>Simple configuration files are used for the user to set preferences and control the behavior of different processes.</p>
+<p>The general syntax is:</p>
+<pre><code># Comment
+VARIABLE    value</code></pre>
+<p>Where there is a tab delimination between <code>VARIABLE</code> and <code>value</code>.</p>
+<h2 id="project-config">Project Config</h2>
+<p>The main configuration file is expected to be on the project root and named <code>config</code> (with no extension).</p>
+<figure>
+<img src="./img/diagram-2.svg" alt="VMA Directory Structure Conventions" /><figcaption>VMA Directory Structure Conventions</figcaption>
+</figure>
+<p>A sample project configuration file is shown below:</p>
+<pre><code># VMAIO Configuration File
+# Version 0.1.0
+
+DATA_DIR                    data
+
+STRUCTURE_NO                123456
+STRUCTURE_DESCRIPTION       Bridge 4 - Interior Span
+
+USER_NAME                   John
+USER_EMAIL                  john@email.com</code></pre>
+<h2 id="data-acquisition-config">Data Acquisition Config</h2>
+<p>DAQ configuration files are assumed to be in the path: <code>~/data/bin/&lt;daq_name&gt;.conf</code>, where <code>~</code> is the project root directory. Note the <code>.conf</code> extension.</p>
+<p>DAQ’s can be in one of two modes, <em>trigger</em> or <em>logger</em>.</p>
+<h3 id="trigger-mode">Trigger Mode</h3>
+<p>DAQ’s in trigger mode are expected to have <strong>1</strong> input record per file. The files are expected to have the naming convention: <code>somethingsomething_&lt;fileid&gt;_&lt;avg&gt;</code></p>
+<p>Below is an example of a trigger configuration file:</p>
+<pre><code># VMA DAQ Configuration
+# Version 0.1.0
+
+# daq scanning mode
+MODE        trigger
+
+# daq sampling info
+FS          3200
+BLOCKSIZE   3200
+
+# trigger window
+LB          50
+RB          31950
+
+# daq channel to data column mapping.
+# the time stamp column is zero indexed
+# to avoid confusion with the physical channels
+TIMEID      0
+INID        1, 2, 3
+OUTID       4
+TRIGGERID   1
+
+# units per channel
+UNITS             lb, lb, lb, g
+
+# channel scaling mv/v -&gt; EU
+SENSITIVITY       .25, .25, .25, 1000
+
+# scaled already? boolean
+SCALED      0</code></pre>
+<h3 id="logger-mode">Logger Mode</h3>
+<p>DAQ’s in logger mode are expected to have a series of files saved in a named folder.</p>
+<p>Below is an example of a logger configuration file:</p>
+<pre><code># VMA DAQ Configuration
+# Version 0.1.0
+
+# daq scanning mode
+MODE        logger
+
+# daq sampling info
+FS          3200
+BLOCKSIZE   3200
+
+# daq channel to data column mapping.
+# the time stamp column is zero indexed
+# to avoid confusion with the physical channels
+TIMEID      0
+OUTID       1, 2, 3, 4, 5, 6
+
+# units per channel
+UNITS       g, g, g, g, g, g
+
+# channel scaling mv/v -&gt; EU
+SENSITIVITY 1000, 1000, 1000, 1000, 1000, 1000
+
+# scaled already? boolean
+SCALED      0</code></pre>
+<h2 id="global-degree-of-freedom-file">Global Degree-of-Freedom File</h2>
+<p>The global DOF file is used to map the fileids (recorded in the filename by a trigger DAQ) to the global DOF in the modal model. It is expected to be a comma deliminated table located on the project root and named <code>dof.csv</code>.</p>
+<p>Below is an example of a dof configuration file. Note the <code>channel = -1</code> in the last four rows signals that all force channels for that DAQ are to sum.</p>
+<pre><code>id,record,axis,orientation,daq,type,channel,x,y,z,input,output
+1,0,3,1,ref2,fixed,1,10,0,0,0,1
+2,0,3,1,ref2,fixed,2,20,0,0,0,1
+3,0,3,1,ref2,fixed,3,60,0,0,0,1
+7,0,3,1,ref1,fixed,1,8.28,40,0,0,1
+8,0,3,1,ref1,fixed,2,18.28,40,0,0,1
+9,0,3,1,ref1,fixed,3,68.28,40,0,0,1
+13,1,3,1,trailer,roving,-1,8.53,5,0,1,1
+14,2,3,1,trailer,roving,-1,18.53,5,0,1,1
+15,3,3,1,trailer,roving,-1,28.53,5,0,1,1
+16,4,3,1,trailer,roving,-1,58.53,5,0,1,1</code></pre>
+</body>
+</html>
